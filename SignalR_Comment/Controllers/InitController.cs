@@ -30,7 +30,7 @@ namespace SignalR_Comment.Controllers
         [HttpPost]
         public JsonResult SaveComment(UserComment model)
         {
-            model.fecha = string.Format("{0}.{1}.{2}", DateTime.Now.Year.ToString(), DateTime.Now.Month.ToString().PadLeft(2, '0'), DateTime.Now.Day.ToString().PadLeft(2, '0'));
+            model.fecha = string.Format("{0}.{1}.{2}", DateTime.Now.Day.ToString().PadLeft(2, '0'), DateTime.Now.Month.ToString().PadLeft(2, '0'), DateTime.Now.Year.ToString());
             if (string.IsNullOrEmpty(model.displayName))
                 model.displayName = "Anónimo";
             AddUserCommentToJsonFile(model);
